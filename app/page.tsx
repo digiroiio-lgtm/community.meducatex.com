@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const reveal = {
   hidden: { opacity: 0, y: 22 },
@@ -45,16 +46,26 @@ function Section({ id, title, children }: { id: string; title: string; children:
 }
 
 export default function Home() {
+  const [submitted, setSubmitted] = useState(false);
+  const [submittedName, setSubmittedName] = useState("");
+
   const handleEarlyAccessSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const name = (formData.get("name") as string | null)?.trim() ?? "";
+    setSubmittedName(name);
+    setSubmitted(true);
   };
 
   return (
     <main className="cinematic-grid relative overflow-hidden text-foreground">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-slate-100 focus:px-3 focus:py-2 focus:text-slate-950">
+        Skip to main content
+      </a>
       <div className="glow-ring -left-32 top-20 h-72 w-72 bg-blue-300/45" />
       <div className="glow-ring right-0 top-[18rem] h-80 w-80 bg-sky-400/35 [animation-delay:1.6s]" />
 
-      <section className="relative mx-auto flex min-h-[92vh] w-full max-w-6xl flex-col justify-between px-6 py-10 sm:px-10 lg:px-12">
+      <section id="main-content" className="relative mx-auto flex min-h-[92vh] w-full max-w-6xl flex-col justify-between px-6 py-10 sm:px-10 lg:px-12">
         <header className="flex items-center justify-between">
           <p className="text-sm font-medium tracking-[0.28em] text-blue-100/80">MEDUCATEX</p>
           <div className="hidden gap-6 text-sm text-slate-300 md:flex">
@@ -164,15 +175,15 @@ export default function Home() {
             <div className="grid gap-4">
               <label htmlFor="name" className="grid gap-2 text-sm text-slate-300">
                 Name
-                <input id="name" className="rounded-xl border border-white/15 bg-slate-950/45 px-4 py-3 text-white outline-none transition focus:border-blue-200/55" type="text" placeholder="Your name" />
+                <input id="name" name="name" required aria-required="true" className="rounded-xl border border-white/15 bg-slate-950/45 px-4 py-3 text-white outline-none transition focus:border-blue-200/55" type="text" placeholder="Your name" />
               </label>
               <label htmlFor="email" className="grid gap-2 text-sm text-slate-300">
                 Email
-                <input id="email" className="rounded-xl border border-white/15 bg-slate-950/45 px-4 py-3 text-white outline-none transition focus:border-blue-200/55" type="email" placeholder="you@example.com" />
+                <input id="email" name="email" required aria-required="true" className="rounded-xl border border-white/15 bg-slate-950/45 px-4 py-3 text-white outline-none transition focus:border-blue-200/55" type="email" placeholder="you@example.com" />
               </label>
               <label htmlFor="role" className="grid gap-2 text-sm text-slate-300">
                 Role
-                <select id="role" className="rounded-xl border border-white/15 bg-slate-950/45 px-4 py-3 text-white outline-none transition focus:border-blue-200/55" defaultValue="Supporter">
+                <select id="role" name="role" className="rounded-xl border border-white/15 bg-slate-950/45 px-4 py-3 text-white outline-none transition focus:border-blue-200/55" defaultValue="Supporter">
                   <option>Investor</option>
                   <option>Surgeon</option>
                   <option>Healthcare Professional</option>
@@ -187,6 +198,11 @@ export default function Home() {
             >
               Request Early Access
             </button>
+            {submitted && (
+              <p className="mt-3 text-sm text-blue-100/85">
+                Thank you{submittedName ? `, ${submittedName}` : ""}. Your early access request has been noted.
+              </p>
+            )}
           </form>
         </div>
       </Section>
