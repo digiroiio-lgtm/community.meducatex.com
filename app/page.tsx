@@ -136,7 +136,7 @@ export default function Home() {
             href="#waitlist"
             className="rounded-full bg-blue-700 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-800"
           >
-            Join Waitlist
+            Join the Early Community
           </a>
         </div>
       </nav>
@@ -168,7 +168,7 @@ export default function Home() {
                 href="#waitlist"
                 className="rounded-full bg-blue-700 px-7 py-3.5 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-800"
               >
-                Join the Community Waitlist
+                Join the Early Community
               </a>
               <a
                 href="#mission"
@@ -487,7 +487,7 @@ export default function Home() {
                 Be among the first to know as MeducateX builds toward the future of surgical education.
               </p>
               <a href="#waitlist" className="mt-8 inline-block rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-blue-700 shadow-sm transition hover:bg-blue-50">
-                Join the Waitlist Today
+                Join the Early Community
               </a>
             </div>
           </Reveal>
