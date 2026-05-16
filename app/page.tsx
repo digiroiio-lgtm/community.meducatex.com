@@ -45,6 +45,10 @@ function Section({ id, title, children }: { id: string; title: string; children:
 }
 
 export default function Home() {
+  const handleEarlyAccessSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+  };
+
   return (
     <main className="cinematic-grid relative overflow-hidden text-foreground">
       <div className="glow-ring -left-32 top-20 h-72 w-72 bg-blue-300/45" />
@@ -156,19 +160,19 @@ export default function Home() {
               This is a community warm-up channel and not a direct securities solicitation.
             </p>
           </div>
-          <form className="rounded-2xl border border-border-subtle bg-card/80 p-6">
+          <form className="rounded-2xl border border-border-subtle bg-card/80 p-6" onSubmit={handleEarlyAccessSubmit}>
             <div className="grid gap-4">
-              <label className="grid gap-2 text-sm text-slate-300">
+              <label htmlFor="name" className="grid gap-2 text-sm text-slate-300">
                 Name
-                <input className="rounded-xl border border-white/15 bg-slate-950/45 px-4 py-3 text-white outline-none transition focus:border-blue-200/55" type="text" placeholder="Your name" />
+                <input id="name" className="rounded-xl border border-white/15 bg-slate-950/45 px-4 py-3 text-white outline-none transition focus:border-blue-200/55" type="text" placeholder="Your name" />
               </label>
-              <label className="grid gap-2 text-sm text-slate-300">
+              <label htmlFor="email" className="grid gap-2 text-sm text-slate-300">
                 Email
-                <input className="rounded-xl border border-white/15 bg-slate-950/45 px-4 py-3 text-white outline-none transition focus:border-blue-200/55" type="email" placeholder="you@example.com" />
+                <input id="email" className="rounded-xl border border-white/15 bg-slate-950/45 px-4 py-3 text-white outline-none transition focus:border-blue-200/55" type="email" placeholder="you@example.com" />
               </label>
-              <label className="grid gap-2 text-sm text-slate-300">
+              <label htmlFor="role" className="grid gap-2 text-sm text-slate-300">
                 Role
-                <select className="rounded-xl border border-white/15 bg-slate-950/45 px-4 py-3 text-white outline-none transition focus:border-blue-200/55" defaultValue="Supporter">
+                <select id="role" className="rounded-xl border border-white/15 bg-slate-950/45 px-4 py-3 text-white outline-none transition focus:border-blue-200/55" defaultValue="Supporter">
                   <option>Investor</option>
                   <option>Surgeon</option>
                   <option>Healthcare Professional</option>
@@ -197,10 +201,10 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-wrap gap-4">
-            <a href="#" className="transition hover:text-white">Privacy</a>
-            <a href="#" className="transition hover:text-white">Terms</a>
-            <a href="#" className="transition hover:text-white">LinkedIn</a>
-            <a href="#" className="transition hover:text-white">X</a>
+            <a href="/privacy" className="transition hover:text-white">Privacy</a>
+            <a href="/terms" className="transition hover:text-white">Terms</a>
+            <a href="https://linkedin.com" className="transition hover:text-white">LinkedIn</a>
+            <a href="https://x.com" className="transition hover:text-white">X</a>
           </div>
         </div>
       </footer>
