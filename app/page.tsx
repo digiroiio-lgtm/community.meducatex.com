@@ -296,6 +296,26 @@ export default function Home() {
         </PageSection>
       </section>
 
+      {/* Founder Note */}
+      <PageSection className="py-20 sm:py-28">
+        <Reveal>
+          <div className="mx-auto max-w-2xl">
+            <p className="text-xs font-semibold tracking-widest text-blue-700">A NOTE FROM THE FOUNDER</p>
+            <blockquote className="mt-6 border-l-2 border-blue-200 pl-6">
+              <p className="text-lg leading-relaxed text-slate-700">
+                &ldquo;We kept hearing the same thing from surgeons across institutions: the most
+                important lessons inside surgery are often the hardest to preserve.
+              </p>
+              <p className="mt-4 text-lg leading-relaxed text-slate-700">
+                MeducateX began with a simple question: what if surgical learning could retain not
+                only procedures, but judgment, context, and experience itself?&rdquo;
+              </p>
+              <footer className="mt-5 text-sm font-medium text-slate-500">— The MeducateX Team</footer>
+            </blockquote>
+          </div>
+        </Reveal>
+      </PageSection>
+
       <PageSection className="py-20 sm:py-28">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
@@ -326,6 +346,66 @@ export default function Home() {
           ))}
         </div>
       </PageSection>
+
+      {/* Why Now */}
+      <section className="border-y border-slate-100 bg-slate-50 py-20 sm:py-28">
+        <PageSection>
+          <Reveal>
+            <div className="mx-auto max-w-2xl text-center">
+              <p className="text-xs font-semibold tracking-widest text-blue-700">WHY NOW</p>
+              <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+                The window for this infrastructure is open
+              </h2>
+              <p className="mt-4 text-lg leading-relaxed text-slate-500">
+                Several converging forces have created a rare moment in surgical education—one that
+                rewards those who move with clarity and purpose.
+              </p>
+            </div>
+          </Reveal>
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                icon: "📈",
+                heading: "Rising surgical complexity",
+                body: "Procedures grow more nuanced each decade. The gap between trainee exposure and real-world complexity widens with each cohort.",
+              },
+              {
+                icon: "🤖",
+                heading: "AI is redefining education expectations",
+                body: "A generation entering surgery expects intelligent, adaptive, and context-aware learning tools—not static slide decks.",
+              },
+              {
+                icon: "🔥",
+                heading: "Institutional burnout at scale",
+                body: "Overburdened teaching hospitals can no longer rely on apprenticeship alone. Scalable knowledge infrastructure is no longer optional.",
+              },
+              {
+                icon: "🌍",
+                heading: "Global surgical inequality",
+                body: "High-quality surgical training is geographically concentrated. The tools to redistribute it, equitably, now exist.",
+              },
+              {
+                icon: "⏳",
+                heading: "Younger surgeons demanding change",
+                body: "The next generation is vocal about the limits of legacy training. They are ready to adopt platforms that respect their time and intelligence.",
+              },
+              {
+                icon: "🏗️",
+                heading: "Infrastructure moment",
+                body: "The foundational layer for surgical knowledge transfer does not yet exist at scale. First-mover infrastructure compounds.",
+              },
+            ].map(({ icon, heading, body }, i) => (
+              <Reveal key={heading} delay={i * 0.08}>
+                <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <span className="text-2xl" role="img" aria-hidden="true">{icon}</span>
+                  <h3 className="mt-3 text-base font-semibold text-slate-900">{heading}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-500">{body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </PageSection>
+      </section>
 
       <section id="waitlist" className="border-t border-slate-100 bg-slate-50 py-20 sm:py-28">
         <PageSection>
