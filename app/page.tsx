@@ -183,7 +183,7 @@ export default function Home() {
               </label>
               <label htmlFor="role" className="grid gap-2 text-sm text-slate-300">
                 Role
-                <select id="role" name="role" required aria-required="true" aria-label="Role" className="rounded-xl border border-white/15 bg-slate-950/45 px-4 py-3 text-white outline-none transition focus:border-blue-200/55" defaultValue="Supporter">
+                <select id="role" name="role" required aria-required="true" className="rounded-xl border border-white/15 bg-slate-950/45 px-4 py-3 text-white outline-none transition focus:border-blue-200/55" defaultValue="Supporter">
                   <option>Investor</option>
                   <option>Surgeon</option>
                   <option>Healthcare Professional</option>
