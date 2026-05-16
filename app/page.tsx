@@ -56,21 +56,27 @@ const whyPoints = [
 
 const surgeons = [
   {
-    initials: "D.R.",
+    name: "Dr. R. Morgan",
+    initials: "RM",
+    avatarUrl: "https://randomuser.me/api/portraits/men/75.jpg",
     specialty: "General Surgery",
     institution: "Academic Medical Center",
     quote:
       "Future surgical education must go beyond static observation. We need infrastructure that preserves real decision-making in context.",
   },
   {
-    initials: "S.M.",
+    name: "Dr. Elena S.",
+    initials: "ES",
+    avatarUrl: "https://randomuser.me/api/portraits/women/44.jpg",
     specialty: "Surgical Education",
     institution: "Regional Teaching Hospital",
     quote:
       "Context-rich learning should scale with institutional quality. MeducateX is thinking about this the right way.",
   },
   {
-    initials: "A.T.",
+    name: "Prof. A. Turner",
+    initials: "AT",
+    avatarUrl: "https://randomuser.me/api/portraits/men/52.jpg",
     specialty: "Clinical Learning Operations",
     institution: "University Training Program",
     quote:
@@ -262,15 +268,33 @@ export default function Home() {
           </div>
         </Reveal>
         <div className="mt-12 grid gap-6 sm:grid-cols-3">
-          {surgeons.map(({ initials, specialty, institution, quote }, i) => (
-            <Reveal key={initials} delay={i * 0.1}>
+          {surgeons.map(({ name, initials, avatarUrl, specialty, institution, quote }, i) => (
+            <Reveal key={name} delay={i * 0.1}>
               <div className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-100 to-slate-200 text-sm font-semibold text-blue-800">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={avatarUrl}
+                    alt={name}
+                    width={48}
+                    height={48}
+                    className="h-12 w-12 shrink-0 rounded-full object-cover ring-2 ring-blue-100"
+                    onError={(e) => {
+                      const t = e.currentTarget;
+                      t.style.display = "none";
+                      const fb = t.nextElementSibling as HTMLElement | null;
+                      if (fb) fb.style.display = "flex";
+                    }}
+                  />
+                  <div
+                    className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-100 to-slate-200 text-sm font-semibold text-blue-800 ring-2 ring-blue-100"
+                    aria-hidden="true"
+                  >
                     {initials}
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-slate-900">{specialty}</p>
+                    <p className="text-sm font-semibold text-slate-900">{name}</p>
+                    <p className="text-xs text-slate-500">{specialty}</p>
                     <p className="text-xs text-slate-400">{institution}</p>
                   </div>
                 </div>
@@ -500,6 +524,9 @@ export default function Home() {
             <div>
               <p className="text-sm font-semibold tracking-widest text-slate-800">MEDUCATEX</p>
               <p className="mt-1">Educational-first surgical intelligence</p>
+              <p className="mt-3 max-w-sm text-xs leading-relaxed text-slate-400">
+                Built around educational collaboration, institutional learning, and the future of surgical knowledge transfer.
+              </p>
               <p className="mt-3 max-w-sm text-xs text-slate-400">
                 MeducateX is an educational-focused platform and does not provide medical diagnosis or clinical decision-making services.
               </p>
