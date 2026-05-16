@@ -9,9 +9,9 @@ const reveal = {
 };
 
 const metrics = [
-  { label: "Institutional Learning Systems", value: "Fragmented", note: "Placeholder signal" },
-  { label: "Surgical Complexity", value: "Increasing", note: "Placeholder signal" },
-  { label: "Knowledge Transfer Gap", value: "Widening", note: "Placeholder signal" },
+  { label: "Institutional Learning Systems", value: "Fragmented", note: "Placeholder Signal" },
+  { label: "Surgical Complexity", value: "Increasing", note: "Placeholder Signal" },
+  { label: "Knowledge Transfer Gap", value: "Widening", note: "Placeholder Signal" },
 ];
 
 const visionPoints = [
@@ -28,7 +28,7 @@ const people = [
   { role: "Institutional Collaborator", specialty: "Clinical Learning Operations", quote: "Knowledge transfer is where long-term surgical progress begins." },
 ];
 
-function Section({ id, title, children }: { id: string; title: string; children: React.ReactNode }) {
+function AnimatedSection({ id, title, children }: { id: string; title: string; children: React.ReactNode }) {
   return (
     <motion.section
       id={id}
@@ -106,7 +106,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <Section id="problem" title="The Knowledge Gap Inside Modern Surgery">
+      <AnimatedSection id="problem" title="The Knowledge Gap Inside Modern Surgery">
         <div className="grid gap-6 md:grid-cols-2">
           <div className="rounded-2xl border border-border-subtle bg-card/75 p-6 backdrop-blur-sm">
             <p className="leading-relaxed text-slate-300">
@@ -124,9 +124,9 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </Section>
+      </AnimatedSection>
 
-      <Section id="vision" title="Building Infrastructure for Surgical Intelligence">
+      <AnimatedSection id="vision" title="Building Infrastructure for Surgical Intelligence">
         <div className="grid gap-4 md:grid-cols-2">
           {visionPoints.map((point) => (
             <div key={point} className="rounded-2xl border border-border-subtle bg-card/65 p-5 transition hover:-translate-y-0.5 hover:border-blue-200/35">
@@ -134,9 +134,9 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </Section>
+      </AnimatedSection>
 
-      <Section id="community" title="The People Behind Surgical Progress">
+      <AnimatedSection id="community" title="The People Behind Surgical Progress">
         <div className="grid gap-5 md:grid-cols-3">
           {people.map((person) => (
             <div key={person.role} className="rounded-2xl border border-border-subtle bg-card/70 p-6">
@@ -147,9 +147,9 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </Section>
+      </AnimatedSection>
 
-      <Section id="journey" title="Why MEDUCATEX Exists">
+      <AnimatedSection id="journey" title="Why MEDUCATEX Exists">
         <div className="rounded-2xl border border-border-subtle bg-card/75 p-6 sm:p-8">
           <p className="max-w-4xl leading-relaxed text-slate-300">
             MEDUCATEX began with a simple observation: critical surgical learning is often distributed across people,
@@ -158,9 +158,9 @@ export default function Home() {
             helping future surgical education become more connected, context-aware, and globally transferable.
           </p>
         </div>
-      </Section>
+      </AnimatedSection>
 
-      <Section id="early-access" title="Become an Early Supporter">
+      <AnimatedSection id="early-access" title="Become an Early Supporter">
         <div className="grid gap-7 lg:grid-cols-[1.15fr_1fr]">
           <div className="rounded-2xl border border-border-subtle bg-card/70 p-6">
             <p className="leading-relaxed text-slate-300">
@@ -205,7 +205,7 @@ export default function Home() {
             )}
           </form>
         </div>
-      </Section>
+      </AnimatedSection>
 
       <footer className="mx-auto w-full max-w-6xl border-t border-white/10 px-6 py-10 sm:px-10 lg:px-12">
         <div className="flex flex-col justify-between gap-6 text-sm text-slate-400 md:flex-row md:items-end">
