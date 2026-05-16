@@ -58,7 +58,7 @@ const surgeons = [
   {
     name: "Dr. R. Morgan",
     initials: "RM",
-    avatarUrl: "https://randomuser.me/api/portraits/men/75.jpg",
+    avatarUrl: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=200&h=200",
     specialty: "General Surgery",
     institution: "Academic Medical Center",
     quote:
@@ -67,7 +67,7 @@ const surgeons = [
   {
     name: "Dr. Elena S.",
     initials: "ES",
-    avatarUrl: "https://randomuser.me/api/portraits/women/44.jpg",
+    avatarUrl: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=200&h=200",
     specialty: "Surgical Education",
     institution: "Regional Teaching Hospital",
     quote:
@@ -76,7 +76,7 @@ const surgeons = [
   {
     name: "Prof. A. Turner",
     initials: "AT",
-    avatarUrl: "https://randomuser.me/api/portraits/men/52.jpg",
+    avatarUrl: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=200&h=200",
     specialty: "Clinical Learning Operations",
     institution: "University Training Program",
     quote:
@@ -84,11 +84,52 @@ const surgeons = [
   },
 ];
 
+const momentumSignals = [
+  "New surgeons joining weekly",
+  "Founding community updates",
+  "Institutional conversations ongoing",
+  "Early access cohort forming",
+  "Residency programs in early discussion",
+  "Knowledge transfer network expanding",
+  "Community growing across specialties",
+];
+
 const socialProof = [
   { stat: "300+", label: "Surgeons on the waitlist" },
   { stat: "40+", label: "Institutions following the journey" },
   { stat: "7", label: "Specialties represented" },
 ];
+
+function MomentumTicker() {
+  const items = [...momentumSignals, ...momentumSignals];
+  return (
+    <div className="overflow-hidden border-y border-slate-100 bg-white py-2.5">
+      <div className="flex items-center gap-4 px-6 sm:px-10 lg:px-12">
+        <span className="shrink-0 inline-flex items-center gap-1.5 rounded-full border border-green-200 bg-green-50 px-2.5 py-1 text-xs font-semibold text-green-700">
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
+            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-green-500" />
+          </span>
+          LIVE
+        </span>
+        <div className="overflow-hidden flex-1">
+          <motion.div
+            className="flex gap-10 whitespace-nowrap"
+            animate={{ x: "-50%" }}
+            transition={{ duration: 30, repeat: Infinity, ease: "linear", repeatType: "loop" }}
+          >
+            {items.map((signal, i) => (
+              <span key={i} className="inline-flex items-center gap-2 text-xs font-medium text-slate-500">
+                <span className="h-0.5 w-3 rounded bg-blue-300" aria-hidden="true" />
+                {signal}
+              </span>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function PageSection({
   id,
@@ -197,6 +238,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <MomentumTicker />
 
       <PageSection id="mission" className="py-20 sm:py-28">
         <Reveal>
